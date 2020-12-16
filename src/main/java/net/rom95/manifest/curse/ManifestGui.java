@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
@@ -52,7 +51,9 @@ public class ManifestGui extends JFrame {
 		setForeground(new Color(255, 69, 0));
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setBounds(100, 100, 800, 600);
-		setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/icon.png")).getImage());
+                java.net.URL imageURL = getClass().getClassLoader().getResource("icon.png");
+                ImageIcon app_icon = new ImageIcon(imageURL);
+                setIconImage(app_icon.getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
